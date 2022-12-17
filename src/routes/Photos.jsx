@@ -18,6 +18,7 @@ const Photos = () => {
     .then(photos => {
       setPhotos(photos.filter(photo => photo.id != id)) 
     })
+    // TODO: answer here
   };
 
   useEffect(() => {
@@ -26,14 +27,19 @@ const Photos = () => {
     .then((response) => response.json())
     .then((json) => setPhotos(json))
     setLoading(false)
+    // TODO: answer here
   }, [sort, submited]);
 
   useEffect(() => {
     setLoading(true);
     fetch ("https://gallery-app-server.vercel.app/photos")
     .then((response) => response.json())
+    .then((json) => setError(json))
     setLoading(false)
+    // TODO: answer here
   }, []);
+
+  if (error) return <h1 style={{ width: "100%", textAlign: "center", marginTop: "20px" }} >Error!</h1>;
 
   return (
     <>
