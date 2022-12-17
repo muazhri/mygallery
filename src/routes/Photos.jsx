@@ -35,8 +35,6 @@ const Photos = () => {
     setLoading(false)
   }, []);
 
-  if (error) return <h1 style={{ width: "100%", textAlign: "center", marginTop: "20px" }} >Error!</h1>;
-
   return (
     <>
       <div className="container">
