@@ -31,13 +31,18 @@ const EditPhoto = () => {
 
   useEffect(() => {
     setLoading(true);
-    fetch (`https://gallery-app-server.vercel.app/photos/${id}`)
-    .then((response) => response.json())
-    .then((json) => {
-      setImageUrl(json.imageUrl),
-      setCaptions(json.captions)
-    })
-    setLoading(false)
+    const fetchPhotos = async () => {
+      try {
+      const request = await fetch(`https://gallery-app-server.vercel.app/photos/${id}`);
+      const response = await request.json()
+      setImageUrl(response.imageUrl)
+      setCaptions(response.captions)
+      setLoading(false)
+      } catch (error) {
+        setError("Error..")
+      }
+    };
+    fetchPhotos();
     // TODO: answer here
   }, [id]);
 
