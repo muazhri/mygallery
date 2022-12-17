@@ -35,7 +35,7 @@ const EditPhoto = () => {
     fetch (`https://gallery-app-server.vercel.app/photos/${id}`)
     .then((response) => response.json())
     .then((json) => {
-      setImageUrl(json.imageUrl),
+      setImageUrl(json.imageUrl)
       setCaptions(json.captions)
     })
     setLoading(false)

@@ -34,7 +34,7 @@ const Photos = () => {
     setLoading(true);
     fetch ("https://gallery-app-server.vercel.app/photos")
     .then((response) => response.json())
-    .then((json) => setError(json))
+    .then((json) => console.log(json))
     setLoading(false)
     // TODO: answer here
   }, []);
