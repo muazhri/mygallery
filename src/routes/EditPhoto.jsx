@@ -1,7 +1,6 @@
 import { useEffect } from "react";
 import { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import Photos from "./Photos";
 
 const EditPhoto = () => {
   const [imageUrl, setImageUrl] = useState("");
@@ -35,7 +34,7 @@ const EditPhoto = () => {
     fetch (`https://gallery-app-server.vercel.app/photos/${id}`)
     .then((response) => response.json())
     .then((json) => {
-      setImageUrl(json.imageUrl)
+      setImageUrl(json.imageUrl),
       setCaptions(json.captions)
     })
     setLoading(false)
